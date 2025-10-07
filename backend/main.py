@@ -53,24 +53,24 @@ async def health_check():
 async def verify_medicine(image: UploadFile = File(...)) -> VerificationResult:
     """
     Verify medicine authenticity from uploaded image.
-    
+
     This endpoint receives an image file, processes it through AI analysis,
     and returns a structured verification result.
     """
-    
+
     # Validate file type
     if not image.content_type or not image.content_type.startswith('image/'):
         raise HTTPException(status_code=400, detail="File must be an image")
-    
+
     try:
         # Read image data
         image_data = await image.read()
-        
+
         # Process image through AI model
         result = await analyze_image(image_data)
-        
+
         return result
-        
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing image: {str(e)}")
     finally:

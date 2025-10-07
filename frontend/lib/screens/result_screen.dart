@@ -18,7 +18,7 @@ class _ResultScreenState extends State<ResultScreen>
   late AnimationController _backgroundController;
   late AnimationController _contentController;
   late AnimationController _buttonController;
-  
+
   late Animation<double> _iconScaleAnimation;
   late Animation<double> _iconRotationAnimation;
   late Animation<double> _backgroundAnimation;
@@ -29,28 +29,28 @@ class _ResultScreenState extends State<ResultScreen>
   bool get isGenuine => widget.result['is_genuine'] ?? false;
   double get confidence => (widget.result['confidence'] ?? 0.0).toDouble();
   String get message => widget.result['message'] ?? '';
-  List<String> get issuesDetected => 
+  List<String> get issuesDetected =>
       (widget.result['issues_detected'] as List<dynamic>?)?.cast<String>() ?? [];
 
   @override
   void initState() {
     super.initState();
-    
+
     _iconController = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
-    
+
     _backgroundController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
-    
+
     _contentController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    
+
     _buttonController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
@@ -106,15 +106,15 @@ class _ResultScreenState extends State<ResultScreen>
 
     // Start animations with delays
     _backgroundController.forward();
-    
+
     Future.delayed(const Duration(milliseconds: 300), () {
       _iconController.forward();
     });
-    
+
     Future.delayed(const Duration(milliseconds: 600), () {
       _contentController.forward();
     });
-    
+
     Future.delayed(const Duration(milliseconds: 1000), () {
       _buttonController.forward();
     });
@@ -164,9 +164,9 @@ class _ResultScreenState extends State<ResultScreen>
             );
           },
         ),
-        
+
         const SizedBox(height: 40),
-        
+
         // Result Text
         SlideTransition(
           position: _contentSlideAnimation,
@@ -183,9 +183,9 @@ class _ResultScreenState extends State<ResultScreen>
                     letterSpacing: 2,
                   ),
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 Text(
                   message,
                   textAlign: TextAlign.center,
@@ -195,9 +195,9 @@ class _ResultScreenState extends State<ResultScreen>
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   decoration: BoxDecoration(
@@ -267,9 +267,9 @@ class _ResultScreenState extends State<ResultScreen>
             );
           },
         ),
-        
+
         const SizedBox(height: 40),
-        
+
         // Result Text
         SlideTransition(
           position: _contentSlideAnimation,
@@ -286,7 +286,7 @@ class _ResultScreenState extends State<ResultScreen>
                     letterSpacing: 1.5,
                   ),
                 ),
-                
+
                 const Text(
                   'COUNTERFEIT',
                   style: TextStyle(
@@ -296,9 +296,9 @@ class _ResultScreenState extends State<ResultScreen>
                     letterSpacing: 1.5,
                   ),
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 Text(
                   message,
                   textAlign: TextAlign.center,
@@ -308,9 +308,9 @@ class _ResultScreenState extends State<ResultScreen>
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   decoration: BoxDecoration(
@@ -337,10 +337,10 @@ class _ResultScreenState extends State<ResultScreen>
                     ],
                   ),
                 ),
-                
+
                 if (issuesDetected.isNotEmpty) ...[
                   const SizedBox(height: 32),
-                  
+
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 32),
                     padding: const EdgeInsets.all(20),
@@ -425,15 +425,15 @@ class _ResultScreenState extends State<ResultScreen>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(height: 40),
-                      
+
                       // Result Content
                       if (isGenuine)
                         _buildGenuineResult()
                       else
                         _buildCounterfeitResult(),
-                      
+
                       const SizedBox(height: 60),
-                      
+
                       // Scan Another Button
                       ScaleTransition(
                         scale: _buttonAnimation,
@@ -441,7 +441,7 @@ class _ResultScreenState extends State<ResultScreen>
                           onPressed: () {
                             Navigator.of(context).pushAndRemoveUntil(
                               PageRouteBuilder(
-                                pageBuilder: (context, animation, secondaryAnimation) => 
+                                pageBuilder: (context, animation, secondaryAnimation) =>
                                     const Scaffold(body: Center(child: CircularProgressIndicator())),
                                 transitionDuration: const Duration(milliseconds: 300),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -450,7 +450,7 @@ class _ResultScreenState extends State<ResultScreen>
                               ),
                               (route) => false,
                             );
-                            
+
                             final navigator = Navigator.of(context);
                             Future.delayed(const Duration(milliseconds: 100), () {
                               if (mounted) {

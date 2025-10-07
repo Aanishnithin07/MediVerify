@@ -18,7 +18,7 @@ A beautifully designed Flutter application for medical verification with stunnin
 - **Error Handling**: Graceful error states with user-friendly messages
 
 ### 🎨 **Mind-Blowing Result Screen**
-- **Dynamic Backgrounds**: 
+- **Dynamic Backgrounds**:
   - **Genuine**: Reassuring green gradient with animated checkmark
   - **Counterfeit**: Cautionary red gradient with animated warning X
 - **Animated Icons**: Elastic scaling and rotation effects
@@ -57,7 +57,7 @@ lib/
 
 #### Color Palette
 - **Primary Green**: `#27AE60` - Trust and reliability
-- **Secondary Green**: `#2ECC71` - Success states  
+- **Secondary Green**: `#2ECC71` - Success states
 - **Warning Red**: `#E74C3C` - Danger and alerts
 - **Dark Grey**: `#34495E` - Text and UI elements
 - **Clean White**: `#FFFFFF` - Backgrounds and contrast

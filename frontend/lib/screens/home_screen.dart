@@ -18,19 +18,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late Animation<double> _logoAnimation;
   late Animation<Offset> _textSlideAnimation;
   late Animation<double> _textOpacityAnimation;
-  
+
   bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    
+
     // Logo animation controller
     _logoController = AnimationController(
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
-    
+
     // Text animation controller
     _textController = AnimationController(
       duration: const Duration(milliseconds: 1000),
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     try {
       // Take photo
       final imageFile = await CameraService.takePhoto();
-      
+
       if (imageFile != null && mounted) {
         // Show loading screen
         Navigator.of(context).push(
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         if (mounted) {
           Navigator.of(context).pushReplacement(
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => 
+              pageBuilder: (context, animation, secondaryAnimation) =>
                   ResultScreen(result: result),
               transitionDuration: const Duration(milliseconds: 500),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Spacer(flex: 2),
-                
+
                 // Animated Logo
                 AnimatedBuilder(
                   animation: _logoAnimation,
@@ -195,9 +195,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     );
                   },
                 ),
-                
+
                 const SizedBox(height: 32),
-                
+
                 // Animated Title and Subtitle
                 SlideTransition(
                   position: _textSlideAnimation,
@@ -228,17 +228,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ),
                   ),
                 ),
-                
+
                 const Spacer(flex: 1),
-                
+
                 // Animated Scan Button
                 AnimatedScanButton(
                   onPressed: _handleScanPressed,
                   isLoading: _isLoading,
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Tagline
                 SlideTransition(
                   position: _textSlideAnimation,
@@ -259,9 +259,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ),
                   ),
                 ),
-                
+
                 const Spacer(flex: 2),
-                
+
                 // Bottom hint
                 SlideTransition(
                   position: _textSlideAnimation,

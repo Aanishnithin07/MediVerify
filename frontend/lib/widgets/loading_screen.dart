@@ -22,12 +22,12 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   void initState() {
     super.initState();
-    
+
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
     );
-    
+
     _pulseController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
@@ -107,9 +107,9 @@ class _LoadingScreenState extends State<LoadingScreen>
                 );
               },
             ),
-            
+
             const SizedBox(height: 40),
-            
+
             // Loading message
             Text(
               widget.message,
@@ -119,9 +119,9 @@ class _LoadingScreenState extends State<LoadingScreen>
                 color: Color(0xFF34495E),
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Subtitle
             const Text(
               'Please wait while we verify your medicine',
@@ -130,9 +130,9 @@ class _LoadingScreenState extends State<LoadingScreen>
                 color: Color(0xFF7F8C8D),
               ),
             ),
-            
+
             const SizedBox(height: 40),
-            
+
             // Progress dots
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +143,7 @@ class _LoadingScreenState extends State<LoadingScreen>
                     final delay = index * 0.3;
                     final value = (_controller.value - delay) % 1.0;
                     final opacity = value < 0.5 ? value * 2 : (1.0 - value) * 2;
-                    
+
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 4),
                       width: 12,

@@ -68,10 +68,10 @@ MEDIVERIFY/
    ```bash
    # Option 1: Using the startup script
    ./start.sh
-   
+
    # Option 2: Using uvicorn directly
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   
+
    # Option 3: Using Python directly
    python main.py
    ```
@@ -105,7 +105,7 @@ MEDIVERIFY/
 ### Prerequisites
 
 - Flutter SDK (latest stable version)
-- Python 3.8+ 
+- Python 3.8+
 - Dart SDK (included with Flutter)
 
 ### Frontend Development

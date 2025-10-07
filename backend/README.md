@@ -12,7 +12,7 @@ A powerful FastAPI backend for medical verification services with AI-powered ima
 
 ### 🤖 **AI-Powered Analysis**
 - **Placeholder AI Logic**: Random verification results for development
-- **Structured Results**: 
+- **Structured Results**:
   - `is_authentic` (boolean): True for genuine, False for counterfeit
   - `confidence_score` (float): AI model confidence (0.0 to 1.0)
   - `issues_detected` (list): Specific problems found in counterfeit medicines
@@ -114,7 +114,7 @@ AI model information and capabilities.
   "last_trained": "N/A - Placeholder model",
   "capabilities": [
     "Medicine authenticity detection",
-    "Issue identification", 
+    "Issue identification",
     "Confidence scoring"
   ]
 }

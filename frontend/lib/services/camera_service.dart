@@ -5,13 +5,13 @@ import 'package:permission_handler/permission_handler.dart';
 
 class CameraService {
   static final ImagePicker _picker = ImagePicker();
-  
+
   /// Request camera permission
   static Future<bool> requestCameraPermission() async {
     final status = await Permission.camera.request();
     return status.isGranted;
   }
-  
+
   /// Take a photo using image picker
   static Future<File?> takePhoto() async {
     try {
@@ -20,7 +20,7 @@ class CameraService {
       if (!hasPermission) {
         return null;
       }
-      
+
       // Take photo
       final XFile? image = await _picker.pickImage(
         source: ImageSource.camera,
@@ -28,7 +28,7 @@ class CameraService {
         maxWidth: 1920,
         maxHeight: 1080,
       );
-      
+
       if (image != null) {
         return File(image.path);
       }
@@ -42,7 +42,7 @@ class CameraService {
       return null;
     }
   }
-  
+
   /// Pick image from gallery (alternative option)
   static Future<File?> pickFromGallery() async {
     try {
@@ -50,7 +50,7 @@ class CameraService {
         source: ImageSource.gallery,
         imageQuality: 85,
       );
-      
+
       if (image != null) {
         return File(image.path);
       }
