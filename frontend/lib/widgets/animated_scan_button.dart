@@ -5,10 +5,10 @@ class AnimatedScanButton extends StatefulWidget {
   final bool isLoading;
 
   const AnimatedScanButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   State<AnimatedScanButton> createState() => _AnimatedScanButtonState();
@@ -96,7 +96,7 @@ class _AnimatedScanButtonState extends State<AnimatedScanButton>
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF27AE60).withOpacity(0.3),
+                    color: const Color(0xFF27AE60).withValues(alpha: 0.3),
                     blurRadius: 20,
                     offset: const Offset(0, 8),
                   ),

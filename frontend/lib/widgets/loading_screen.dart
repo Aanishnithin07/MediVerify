@@ -4,9 +4,9 @@ class LoadingScreen extends StatefulWidget {
   final String message;
 
   const LoadingScreen({
-    Key? key,
+    super.key,
     this.message = 'Analyzing medicine...',
-  }) : super(key: key);
+  });
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
@@ -91,7 +91,7 @@ class _LoadingScreenState extends State<LoadingScreen>
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF27AE60).withOpacity(0.3),
+                            color: const Color(0xFF27AE60).withValues(alpha: 0.3),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -150,7 +150,7 @@ class _LoadingScreenState extends State<LoadingScreen>
                       height: 12,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: const Color(0xFF27AE60).withOpacity(opacity.clamp(0.3, 1.0)),
+                        color: const Color(0xFF27AE60).withValues(alpha: opacity.clamp(0.3, 1.0)),
                       ),
                     );
                   },

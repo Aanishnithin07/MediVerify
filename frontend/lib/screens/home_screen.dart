@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       // Take photo
       final imageFile = await CameraService.takePhoto();
       
-      if (imageFile != null) {
+      if (imageFile != null && mounted) {
         // Show loading screen
         Navigator.of(context).push(
           PageRouteBuilder(
@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: const Color(0xFF27AE60).withOpacity(0.3),
+                              color: const Color(0xFF27AE60).withValues(alpha: 0.3),
                               blurRadius: 20,
                               offset: const Offset(0, 10),
                             ),

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -33,7 +34,11 @@ class CameraService {
       }
       return null;
     } catch (e) {
-      print('Error taking photo: $e');
+      // Log error in debug mode only
+      assert(() {
+        debugPrint('Error taking photo: $e');
+        return true;
+      }());
       return null;
     }
   }
@@ -51,7 +56,11 @@ class CameraService {
       }
       return null;
     } catch (e) {
-      print('Error picking image: $e');
+      // Log error in debug mode only
+      assert(() {
+        debugPrint('Error picking image: $e');
+        return true;
+      }());
       return null;
     }
   }

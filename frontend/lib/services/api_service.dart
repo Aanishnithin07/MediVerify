@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -89,7 +90,11 @@ class ApiService {
       }
       return null;
     } catch (e) {
-      print('Error getting model info: $e');
+      // Log error in debug mode only
+      assert(() {
+        debugPrint('Error getting model info: $e');
+        return true;
+      }());
       return null;
     }
   }

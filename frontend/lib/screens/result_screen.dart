@@ -4,9 +4,9 @@ class ResultScreen extends StatefulWidget {
   final Map<String, dynamic> result;
 
   const ResultScreen({
-    Key? key,
+    super.key,
     required this.result,
-  }) : super(key: key);
+  });
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -148,7 +148,7 @@ class _ResultScreenState extends State<ResultScreen>
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.white.withOpacity(0.5),
+                        color: Colors.white.withValues(alpha: 0.5),
                         blurRadius: 30,
                         spreadRadius: 10,
                       ),
@@ -201,7 +201,7 @@ class _ResultScreenState extends State<ResultScreen>
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Row(
@@ -251,7 +251,7 @@ class _ResultScreenState extends State<ResultScreen>
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.white.withOpacity(0.5),
+                        color: Colors.white.withValues(alpha: 0.5),
                         blurRadius: 30,
                         spreadRadius: 10,
                       ),
@@ -314,7 +314,7 @@ class _ResultScreenState extends State<ResultScreen>
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Row(
@@ -345,7 +345,7 @@ class _ResultScreenState extends State<ResultScreen>
                     margin: const EdgeInsets.symmetric(horizontal: 32),
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.15),
+                      color: Colors.white.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Column(
@@ -451,8 +451,11 @@ class _ResultScreenState extends State<ResultScreen>
                               (route) => false,
                             );
                             
+                            final navigator = Navigator.of(context);
                             Future.delayed(const Duration(milliseconds: 100), () {
-                              Navigator.of(context).pushReplacementNamed('/');
+                              if (mounted) {
+                                navigator.pushReplacementNamed('/');
+                              }
                             });
                           },
                           style: ElevatedButton.styleFrom(
