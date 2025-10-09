@@ -2,6 +2,18 @@
 
 MediVerify is a reliable medical verification platform built with Flutter (frontend) and FastAPI (backend).
 
+## 🚀 **Quick Start for Android Studio Users**
+
+**👨‍💻 If you have Android Studio installed, follow this guide:**
+📋 **[SETUP_FOR_ANDROID_STUDIO.md](./SETUP_FOR_ANDROID_STUDIO.md)** - Complete step-by-step setup instructions
+
+**⚡ Quick commands:**
+```bash
+git clone https://github.com/Aanishnithin07/MediVerify.git
+cd MediVerify/backend && python3 main.py &
+cd ../frontend && flutter run
+```
+
 ## Project Structure
 
 ```
